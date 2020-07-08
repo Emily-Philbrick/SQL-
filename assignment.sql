@@ -12,7 +12,7 @@ Create TABLE Directors(
 directorsID int NOT NULL PRIMARY KEY identity(1,1),
 directors_name VARCHAR(20) NOT NULL, 
 movie_name VARCHAR(20) NOT NULL, 
-Actorsid int NOT NULL constraint fk_director_id FOREIGN KEY references Actors(actorsID) ON update cascade ON delete cascade
+Actorsid int NOT NULL constraint fk_director_id 
 );
 
 Create TABLE movies(
@@ -21,19 +21,19 @@ directors_name VARCHAR(20) NOT NULL,
 movie_name VARCHAR(20) NOT NULL, 
 );
 
-INSERT INTO Actors( actorID, actorName, MovieName)
+INSERT INTO Actors( actorID, actor_Name, Movie_Name)
 VALUES (1, 'Johnny Depp', 'Pirates of the Caribbean'),
 (2, 'Penelope Cruise', 'Blow'),
 (3, 'Harrison Ford', 'Star Wars'),
 (4, 'Shia Lebouf', 'Transformers'),
-(5, 'Cameron Diaz', 'Charles Angels'),
+(5, 'Cameron Diaz', 'Charles Angels')
 
 
-INSERT INTO Directors( directorID, directorName, MovieName)
+INSERT INTO Directors( directorID, director_Name, Movie_Name)
 VALUES (1, 'Alfred Hitchcock', 'Physcho'),
 (2, 'Quentin Tarantino', 'Once upon a time in hollywood'), 
 (3, 'Stephen Spielberg', 'ET'),
 (4, 'Christopher Nolan', 'The Dark Knight'),
-(5, 'Gore Verbinski', 'The Pirates of the Carribean'),
+(5, 'Gore Verbinski', 'The Pirates of the Carribean')
 
 
