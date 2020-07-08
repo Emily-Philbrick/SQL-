@@ -1,45 +1,31 @@
-MOVIES 
+Create database db_movies
+use db_movies 
 
-					
-Make TABLE Actors(						
-actorID int NOT NULL, 
-actors NAME VARCHAR (20) NOT NULL,
-movie NAME VARCHAR (20) NOT NULL, 
-Directorid int, 
-PRIMARY KEY (actorID),
-FOREIGN KEY (directorID)
+Create TABLE Actors(						
+actorID int NOT NULL PRIMARY KEY identity(1,1),
+actors_name VARCHAR(20) NOT NULL,
+movie_name VARCHAR(20) NOT NULL, 
+Directorid int NOT NULL constraint fk_director_id FOREIGN KEY references Directors(directorsID) ON update cascade ON delete cascade
 );
 
-Make TABLE Directors(
-directorsID int NOT NULL, 
-directors NAME VARCHAR (20) NOT NULL, 
-movie NAME VARCHAR (20) NOT NULL, 
-movie id int, 
-PRIMARY KEY (directorsID)
-FOREIGN KEY (actorID)
+Create TABLE Directors(
+directorsID int NOT NULL PRIMARY KEY identity(1,1),
+directors_name VARCHAR(20) NOT NULL, 
+movie_name VARCHAR(20) NOT NULL, 
+Actorsid int NOT NULL constraint fk_director_id FOREIGN KEY references Actors(actorsID) ON update cascade ON delete cascade
 );
 
-Actors TABLE
-Johnny_Depp		Pirates_of_the_Carribean
+Create TABLE movies(
+moviesID int NOT NULL PRIMARY KEY identity(1,1), 
+directors_name VARCHAR(20) NOT NULL, 
+movie_name VARCHAR(20) NOT NULL, 
+);
 
-Penelope_Cruz	Blow
-
-Shia_Lebouff	Transformers
-
-Harrison_Ford	Star_Wars
-
-Cameron_Diaz	Charles_Angels 
+INSERT INTO Actors( actorID, actorName, MovieName)
+VALUES (1, 'Johnny Depp', 'Pirates of the Caribbean', 2, 'Penelope Cruise', 'Blow', 3, 'Harrison Ford', 'Star Wars', 4, 'Shia Lebouf', 'Transformers', 5, 'Cameron Diaz', 'Charles Angels',
 
 
-Directors TABLE 
-Alfred_Hitchcock	Physcho
-
-Quentin_Tarantino	Kill_bill	
-
-Steven Spielberg	ET
-
-Christopher_Nolan	The_Dark_Knight
-
-Gore_Verbinski		The_Pirates_of_the_Carribean 
+INSERT INTO Directors( directorID, directorName, MovieName)
+VALUES (1, 'Alfred Hitchcock', 'Physcho', 2, 'Quentin Tarantino', 'Once upon a time in hollywood', 3, 'Stephen Spielberg', 4, 'Christopher Nolan', 'The Dark Knight', 5, 'Gore Verbinski', 'The Pirates of the Carribean',)
 
 
